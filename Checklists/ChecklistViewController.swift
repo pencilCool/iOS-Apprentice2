@@ -16,7 +16,24 @@ class CheckListViewController: UITableViewController {
     var row3item: ChecklistItem
     var row4item: ChecklistItem
 
-    
+    required init?(coder aDecoder: NSCoder) {
+        row0item = ChecklistItem()
+        row0item.text = "Walk the dog"
+        row0item.checked = false
+        row1item = ChecklistItem()
+        row1item.text = "Brush my teeth"
+        row1item.checked = true
+        row2item = ChecklistItem()
+        row2item.text = "Learn iOS development"
+        row2item.checked = true
+        row3item = ChecklistItem()
+        row3item.text = "Soccer practice"
+        row3item.checked = false
+        row4item = ChecklistItem()
+        row4item.text = "Eat ice cream"
+        row4item.checked = true
+        super.init(coder: aDecoder)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.

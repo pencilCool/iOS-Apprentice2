@@ -58,41 +58,26 @@ class CheckListViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if let cell = tableView.cellForRow(at: indexPath) {
+            var isChecked = false
             if indexPath.row == 0 {
                 row0checked = !row0checked
-                if row0checked {
-                cell.accessoryType = .checkmark
-                }else{
-                cell.accessoryType = .none
-                }
+                isChecked = row0checked
             } else if indexPath.row == 1 {
                 row1checked = !row1checked
-                if row1checked {
-                    cell.accessoryType = .checkmark
-                }else{
-                    cell.accessoryType = .none
-                }
-            }else if indexPath.row == 2 {
+                isChecked = row1checked
+            } else if indexPath.row == 2 {
                 row2checked = !row2checked
-                if row2checked {
-                    cell.accessoryType = .checkmark
-                }else{
-                    cell.accessoryType = .none
-                }
-            }else if indexPath.row == 3 {
+                isChecked = row2checked
+            } else if indexPath.row == 3 {
                 row3checked = !row3checked
-                if row3checked {
-                    cell.accessoryType = .checkmark
-                }else{
-                    cell.accessoryType = .none
-                }
-            }else if indexPath.row == 4 {
+                isChecked = row3checked
+            } else if indexPath.row == 4 {
                 row4checked = !row4checked
-                if row4checked {
-                    cell.accessoryType = .checkmark
-                }else{
-                    cell.accessoryType = .none
-                }
+                isChecked = row4checked }
+            if isChecked {
+                cell.accessoryType = .checkmark
+            } else {
+                cell.accessoryType = .none
             }
                     
         }

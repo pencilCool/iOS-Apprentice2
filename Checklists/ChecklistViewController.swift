@@ -17,10 +17,10 @@ class CheckListViewController: UITableViewController {
     var row4text = "Eat ice cream"
 
     var row0checked = false
-    var row1checked = false
-    var row2checked = false
+    var row1checked = true
+    var row2checked = true
     var row3checked = false
-    var row4checked = false
+    var row4checked = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,6 +85,8 @@ class CheckListViewController: UITableViewController {
             cell.accessoryType = .checkmark
         } else {
             cell.accessoryType = .none
-        } }
+        }
+    
+    }
 }
 

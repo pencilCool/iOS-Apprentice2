@@ -8,7 +8,15 @@
 
 import UIKit
 
+protocol AddItemViewControllerDelegate: class {
+    func addItemViewControllerDidCancel(controller: AddItemViewController)
+    
+    func addItemViewController(controller: AddItemViewController, didFinishAddingItem item: ChecklistItem)
+}
+
 class AddItemViewController: UITableViewController, UITextFieldDelegate{
+    
+    weak var delegate: AddItemViewControllerDelegate?
     
     @IBOutlet weak var doneBarButton: UIBarButtonItem!
     
@@ -16,9 +24,14 @@ class AddItemViewController: UITableViewController, UITextFieldDelegate{
     
     @IBAction func cancel() {
         dismiss(animated: true, completion: nil)
+        delegate?.addItemViewControllerDidCancel(controller: self)
     }
     @IBAction func done () {
         print("Contents of the text field: \(textField.text!)")
+        let item = ChecklistItem()
+        item.text = textField.text!
+        item.checked = false
+        delegate?.addItemViewController(controller: self, didFinishAddingItem: item)
         dismiss(animated: true, completion: nil)
     }
     

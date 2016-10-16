@@ -19,7 +19,7 @@
                                 <rect key="frame" x="0.0" y="92" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3fT-wk-Wmb" id="mrS-Nq-ahK">
-                                    <frame key="frameInset" width="281" height="43"/>
+                                    <frame key="frameInset" width="281" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nMt-5n-vby">
@@ -41,7 +41,7 @@
                     <navigationItem key="navigationItem" title="Checklists" id="QVd-OA-tYx">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Dk7-cH-Lxd">
                             <connections>
-                                <segue destination="t2M-fE-dNt" kind="presentation" id="PBb-3B-uq3"/>
+                                <segue destination="t2M-fE-dNt" kind="presentation" identifier="AddItem" id="PBb-3B-uq3"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -83,7 +83,7 @@
                                         <rect key="frame" x="0.0" y="99" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uF7-V2-g6n" id="po4-QF-322">
-                                            <frame key="frameInset" width="320" height="43"/>
+                                            <frame key="frameInset" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name of the Item" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WOy-Qr-2FP">

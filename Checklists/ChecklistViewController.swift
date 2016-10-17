@@ -114,12 +114,36 @@ class CheckListViewController: UITableViewController, AddItemViewControllerDeleg
         dismiss(animated: true, completion: nil)
     }
     
+    func addItemViewController(controller: AddItemViewController, didFinishEditingItem item: ChecklistItem) {
+    
+
+        if let index = items.index(of: item) {
+            let indexPath = IndexPath(row: index, section: 0)
+            if let cell = tableView.cellForRow(at: indexPath) {
+                configureText(for: cell, withChecklistItem: item)
+            }
+        }
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "AddItem" {
             let navigationController = segue.destination as! UINavigationController
             let controller = navigationController.topViewController as! AddItemViewController
             controller.delegate = self
+        } else if segue.identifier ==  "EditItem" {
+            let navigationController = segue.destination as! UINavigationController
+            let controller = navigationController.topViewController as! AddItemViewController
+            controller.delegate = self
+            if let indexPath = tableView.indexPath(for: sender as! UITableViewCell){
+                controller.itemToEdit = items[indexPath.row]
+            }
+            
         }
+        
+        
     }
 }
 

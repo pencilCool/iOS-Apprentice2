@@ -46,7 +46,17 @@ class DataModel {
                 let unarchiver = NSKeyedUnarchiver(forReadingWith: data as Data)
                 lists = unarchiver.decodeObject(forKey: "Checklists") as! [Checklist]
                 unarchiver.finishDecoding() }
-        } }
+        }
+    }
+    
+    var indexOfSelectedChecklist: Int{
+        get {
+            return UserDefaults.standard.integer(forKey: "ChecklistIndex")
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "ChecklistIndex")
+        }
+    }
     
     
 }

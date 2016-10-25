@@ -21,7 +21,7 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         navigationController?.delegate = self
-        let index  = UserDefaults.standard.integer(forKey: "ChecklistIndex")
+        let index  = dataModel.indexOfSelectedChecklist
         
         if index != -1 {
             let checklist = dataModel.lists[index]
@@ -67,7 +67,8 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        UserDefaults.standard.set(indexPath.row, forKey: "ChecklistIndex")
+        dataModel.indexOfSelectedChecklist = indexPath.row
+        
         let checklist = dataModel.lists[indexPath.row]
         performSegue(withIdentifier: "ShowChecklist", sender: checklist)
        
@@ -132,7 +133,7 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
     func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
         
         if viewController === self {
-            UserDefaults.standard.set(-1, forKey: "ChecklistIndex")
+           dataModel.indexOfSelectedChecklist = -1
             
         }
     }

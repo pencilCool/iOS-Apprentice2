@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EC07B4A81DBF0D8400B62A15 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC07B4A71DBF0D8400B62A15 /* DataModel.swift */; };
 		EC1869E11DB8516F0081ED43 /* AllListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1869E01DB8516F0081ED43 /* AllListsViewController.swift */; };
 		EC186A341DB904CB0081ED43 /* Checklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC186A331DB904CB0081ED43 /* Checklist.swift */; };
 		EC37C2B01DBE384C004D1C38 /* ListDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC37C2AF1DBE384C004D1C38 /* ListDetailViewController.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EC07B4A71DBF0D8400B62A15 /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		EC1869E01DB8516F0081ED43 /* AllListsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllListsViewController.swift; sourceTree = "<group>"; };
 		EC186A331DB904CB0081ED43 /* Checklist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Checklist.swift; sourceTree = "<group>"; };
 		EC37C2AF1DBE384C004D1C38 /* ListDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListDetailViewController.swift; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 				EC83EC211DADC8D4003742D7 /* Info.plist */,
 				EC186A331DB904CB0081ED43 /* Checklist.swift */,
 				EC43D6451DB0ABCE009CACAA /* ChecklistItem.swift */,
+				EC07B4A71DBF0D8400B62A15 /* DataModel.swift */,
 			);
 			path = Checklists;
 			sourceTree = "<group>";
@@ -157,6 +160,7 @@
 				EC43D6461DB0ABCE009CACAA /* ChecklistItem.swift in Sources */,
 				EC186A341DB904CB0081ED43 /* Checklist.swift in Sources */,
 				EC43D6481DB0C9B5009CACAA /* ItemDetailViewController.swift in Sources */,
+				EC07B4A81DBF0D8400B62A15 /* DataModel.swift in Sources */,
 				EC1869E11DB8516F0081ED43 /* AllListsViewController.swift in Sources */,
 				EC83EC161DADC8D4003742D7 /* AppDelegate.swift in Sources */,
 			);

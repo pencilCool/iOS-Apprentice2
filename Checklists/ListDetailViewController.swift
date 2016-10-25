@@ -80,8 +80,7 @@ class ListDetailViewController: UITableViewController,UITextFieldDelegate,IconPi
             checklist.iconName = iconName
             delegate?.listDetailViewController(controller: self, didFinishAddingChecklist: checklist)
         } else {
-            let checklist = Checklist(name: textField.text!)
-            checklist.iconName = iconName
+            let checklist = Checklist(name: textField.text!,iconName: iconName)
             delegate?.listDetailViewController(controller: self, didFinishAddingChecklist: checklist)
          
         }

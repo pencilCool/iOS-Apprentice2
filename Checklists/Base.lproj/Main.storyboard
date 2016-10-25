@@ -103,9 +103,11 @@
                                             <frame key="frameInset" width="342" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Por-6i-V97">
-                                                    <frame key="frameInset" minX="300" width="36" height="36"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Por-6i-V97">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="36" id="3yf-FS-3Bq"/>
+                                                        <constraint firstAttribute="height" constant="36" id="ult-Ez-WNE"/>
+                                                    </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Icon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wEw-U6-OQd">
                                                     <frame key="frameInset" minX="20" minY="8" width="36" height="24"/>
@@ -115,6 +117,10 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="Por-6i-V97" secondAttribute="trailing" id="B1w-i5-8pc"/>
+                                                <constraint firstItem="Por-6i-V97" firstAttribute="top" secondItem="tEe-b0-uhh" secondAttribute="top" constant="4" id="WgM-w5-Rcv"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <segue destination="CKD-ym-43j" kind="show" identifier="PickIcon" id="8tI-Qi-8YD"/>

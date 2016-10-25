@@ -116,8 +116,11 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
     
     
     func listDetailViewController(controller: ListDetailViewController, didFinishAddingChecklist checklist: Checklist) {
+        
+        
         let newRowIndex = dataModel.lists.count
         dataModel.lists.append(checklist)
+      
         
         let indexPath = IndexPath(row: newRowIndex, section: 0)
         

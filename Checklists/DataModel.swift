@@ -13,11 +13,26 @@ class DataModel {
     init(){
         loadChecklists()
         registerDefaults()
+        handleFirsTime()
     }
     
     func registerDefaults() {
         let dictionary = [ "ChecklistIndex": -1 ]
+ 
         UserDefaults.standard.register(defaults: dictionary)
+        
+    }
+    
+    func handleFirsTime() {
+        let userDefault = UserDefaults.standard
+        let first = userDefault.bool(forKey: "FirstTime")
+        if first {
+            let checklist = Checklist(name: "List")
+            lists.append(checklist)
+            indexOfSelectedChecklist = 0
+            userDefault.set(false, forKey: "FirstTime")
+            userDefault.synchronize()
+        }
     }
     
     func documentsDirectory() -> String {
@@ -55,6 +70,7 @@ class DataModel {
         }
         set {
             UserDefaults.standard.set(newValue, forKey: "ChecklistIndex")
+            UserDefaults.standard.synchronize()
         }
     }
     

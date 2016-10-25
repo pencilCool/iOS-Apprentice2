@@ -118,13 +118,17 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
     func listDetailViewController(controller: ListDetailViewController, didFinishAddingChecklist checklist: Checklist) {
         
         
-        let newRowIndex = dataModel.lists.count
+    
         dataModel.lists.append(checklist)
-      
+//        let newRowIndex = dataModel.lists.count
+//        
+//        let indexPath = IndexPath(row: newRowIndex, section: 0)
+//        
+//        tableView.insertRows(at: [indexPath], with: .automatic)
         
-        let indexPath = IndexPath(row: newRowIndex, section: 0)
-        
-        tableView.insertRows(at: [indexPath], with: .automatic)
+       
+        dataModel.sortChecklists()
+        tableView.reloadData()
         
         dismiss(animated: true, completion: nil)
         
@@ -134,14 +138,18 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
     
     func listDetailViewController(controller: ListDetailViewController, didFinishEditingChecklist checklist: Checklist){
         
-        if let index = dataModel.lists.index(of: checklist){
-            let indexPath = IndexPath(row: index, section: 0)
-            if let cell = tableView.cellForRow(at: indexPath){
-                cell.textLabel!.text = checklist.name
-                
-            }
-            
-        }
+//        if let index = dataModel.lists.index(of: checklist){
+//            let indexPath = IndexPath(row: index, section: 0)
+//            if let cell = tableView.cellForRow(at: indexPath){
+//                cell.textLabel!.text = checklist.name
+//                
+//            }
+//            
+//        }
+        
+        dataModel.sortChecklists()
+        tableView.reloadData()
+        
         dismiss(animated: true, completion: nil)
         
         

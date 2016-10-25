@@ -12,23 +12,35 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
     var lists: [Checklist]
     
     required init?(coder aDecoder: NSCoder) {
+//        lists = [Checklist]()
+//        
+//        super.init(coder: aDecoder)
+//        
+//        var list =  Checklist(name: "Birthday")
+//        lists.append(list)
+//        
+//        list = Checklist(name: "Groceries")
+//        lists.append(list)
+//        
+//        list = Checklist(name: "Cool Apps")
+//        lists.append(list)
+//        
+//        list = Checklist(name: "To Do")
+//        lists.append(list)
+//        
+//        
+//        for list in lists {
+//            let  item = ChecklistItem()
+//            item.text = "Item for \(list.name)"
+//            list.items.append(item)
+//            list.items.append(item)
+//        }
+//        
         lists = [Checklist]()
-        
         super.init(coder: aDecoder)
-        
-        var list =  Checklist(name: "Birthday")
-        lists.append(list)
-        
-        list = Checklist(name: "Groceries")
-        lists.append(list)
-        
-        list = Checklist(name: "Cool Apps")
-        lists.append(list)
-        
-        list = Checklist(name: "To Do")
-        lists.append(list)
-        
-        
+        print(documentsDirectory());
+        loadChecklists()
+
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -140,5 +152,35 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
             
         }
     }
+    
+    
+        func documentsDirectory() -> String {
+            let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+            return path[0]
+        }
+        func dataFilePath()->String {
+            return (documentsDirectory() as NSString).appendingPathComponent("Checklist.plist")
+        }
+    
+        func saveChecklists() {
+            let data = NSMutableData()
+            let archiver = NSKeyedArchiver(forWritingWith: data)
+            archiver.encode(lists, forKey: "Checklists")
+            archiver.finishEncoding()
+            data.write(toFile: dataFilePath(), atomically: true)
+        }
+    
+        func loadChecklists() { // 1
+            let path = dataFilePath()
+            // 2
+            if FileManager.default.fileExists(atPath: path) {
+                // 3
+                if let data = NSData(contentsOfFile: path) {
+    
+                    let unarchiver = NSKeyedUnarchiver(forReadingWith: data as Data)
+                    lists = unarchiver.decodeObject(forKey: "Checklists") as! [Checklist]
+                    unarchiver.finishDecoding() }
+            } }
+    
  
 }

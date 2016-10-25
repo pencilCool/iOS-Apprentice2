@@ -56,7 +56,7 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
         let checklist = dataModel.lists[indexPath.row]
         cell.textLabel!.text = checklist.name
         cell.accessoryType = .detailDisclosureButton
-      
+        cell.imageView!.image = UIImage(named: checklist.iconName)
         let count = checklist.countUncheckedItems()
         
         if checklist.items.count == 0 {

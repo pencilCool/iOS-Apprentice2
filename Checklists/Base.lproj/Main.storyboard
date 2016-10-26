@@ -341,4 +341,5 @@
     <inferredMetricsTieBreakers>
         <segue reference="Owi-Wm-go4"/>
     </inferredMetricsTieBreakers>
+    <color key="tintColor" red="0.015686274509803921" green="0.66274509803921566" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>

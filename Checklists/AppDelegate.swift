@@ -27,9 +27,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            forTypes: [.Badge, .Sound, .Alert], categories: nil)
 //        application.registerUserNotificationSettings(notificationSettings)
 //        
-//        
+//
+        let date = NSDate(timeIntervalSinceNow: 10)
+        let localNotification = UILocalNotification()
         
-        
+        localNotification.fireDate = date as Date
+        localNotification.timeZone = NSTimeZone.default
+        localNotification.alertBody = "I am a local notification!"
+        localNotification.soundName = UILocalNotificationDefaultSoundName
+        UIApplication.shared.scheduleLocalNotification( localNotification)
         
         
         let navigationController = window!.rootViewController as! UINavigationController

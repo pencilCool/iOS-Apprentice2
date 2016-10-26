@@ -8,6 +8,8 @@
 
 import UIKit
 
+import UserNotifications;
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -15,7 +17,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let dataModel = DataModel()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-       
+        
+    
+        let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options: [.alert, .sound]) { (granted, error) in
+            // Enable or disable features based on authorization.
+        }
+//        let notificationSettings = UIUserNotificationSettings(
+//            forTypes: [.Badge, .Sound, .Alert], categories: nil)
+//        application.registerUserNotificationSettings(notificationSettings)
+//        
+//        
+        
+        
+        
         
         let navigationController = window!.rootViewController as! UINavigationController
         let controller = navigationController.viewControllers[0] as! AllListsViewController

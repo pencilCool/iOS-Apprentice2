@@ -11,7 +11,7 @@ import UIKit
 import UserNotifications;
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
     let dataModel = DataModel()
@@ -20,22 +20,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
     
         let center = UNUserNotificationCenter.current()
-        center.requestAuthorization(options: [.alert, .sound]) { (granted, error) in
+        center.delegate = self
+        center.requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
             // Enable or disable features based on authorization.
         }
-//        let notificationSettings = UIUserNotificationSettings(
-//            forTypes: [.Badge, .Sound, .Alert], categories: nil)
-//        application.registerUserNotificationSettings(notificationSettings)
-//        
-//
-        let date = NSDate(timeIntervalSinceNow: 10)
-        let localNotification = UILocalNotification()
+
+
         
-        localNotification.fireDate = date as Date
-        localNotification.timeZone = NSTimeZone.default
-        localNotification.alertBody = "I am a local notification!"
-        localNotification.soundName = UILocalNotificationDefaultSoundName
-        UIApplication.shared.scheduleLocalNotification( localNotification)
+  //      https://onevcat.com/2016/08/notification/  还是喵神给力
+        
+        let content = UNMutableNotificationContent()
+        content.title =  "Time Interval Notification"
+        content.body = "My first notification "
+        let trigger  = UNTimeIntervalNotificationTrigger(timeInterval: 10.0, repeats: false)
+        
+        let requestIdentifier = "come.pencilCool.usernotification"
+        let request = UNNotificationRequest(identifier: requestIdentifier, content: content, trigger: trigger)
+  
+        
+        // 将请求添加到发送中心
+        UNUserNotificationCenter.current().add(request) { error in
+            if error == nil {
+                print("Time Interval Notification scheduled: \(requestIdentifier)")
+            }
+        }
         
         
         let navigationController = window!.rootViewController as! UINavigationController
@@ -68,6 +76,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         saveData()
     }
     
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        
+    }
+    
+
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        // 点击通知，重新打开app的时候进入这里
+        completionHandler()
+    }
     
     func saveData() {
         dataModel.saveChecklists()

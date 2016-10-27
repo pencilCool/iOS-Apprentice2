@@ -36,7 +36,7 @@ class ChecklistItem:NSObject,NSCoding {
         
         shouldRemind = aDecoder.decodeBool(forKey: "ShouldRemind")
         dueDate = aDecoder.decodeObject(forKey: "DueDate") as! Date?
-        itemID = aDecoder.decodeInteger(forKey: "ItemID")
+        itemID  = aDecoder.decodeInteger(forKey: "ItemID") 
         
         super.init()
     }

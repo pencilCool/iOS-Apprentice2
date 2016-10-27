@@ -17,7 +17,9 @@ class DataModel {
     }
     
     func registerDefaults() {
-        let dictionary = [ "ChecklistIndex": -1 ]
+        let dictionary = ["ChecklistIndex": -1,
+                          "FirstTime": true,
+                          "ChecklistItemID": 0] as [String : Any] //还要加这么个东西呀
  
         UserDefaults.standard.register(defaults: dictionary)
         
@@ -82,5 +84,13 @@ class DataModel {
             checklist1.name.localizedStandardCompare(checklist2.name) == .orderedAscending })
     }
     
+    // 创建新的item的时候会提供一个唯一的标识符
+    class func nextChecklistItemID() -> Int {
+        let userDefaults = UserDefaults.standard
+        let itemID = userDefaults.integer(forKey: "ChecklistItemID")
+        userDefaults.set(itemID + 1, forKey: "ChecklistItemID")
+        userDefaults.synchronize()
+        return itemID
+    }
     
 }

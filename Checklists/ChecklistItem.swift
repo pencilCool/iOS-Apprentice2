@@ -12,7 +12,7 @@ class ChecklistItem:NSObject,NSCoding {
     var text = ""
     var checked = false
     
-    var dueDate = NSDate()
+    var dueDate:Date? = Date()
     var shouldRemind = false
     var itemID: Int?
     
@@ -35,7 +35,7 @@ class ChecklistItem:NSObject,NSCoding {
 
         
         shouldRemind = aDecoder.decodeBool(forKey: "ShouldRemind")
-        dueDate = aDecoder.decodeObject(forKey: "DueDate") as! NSDate
+        dueDate = aDecoder.decodeObject(forKey: "DueDate") as! Date?
         itemID = aDecoder.decodeInteger(forKey: "ItemID")
         
         super.init()
